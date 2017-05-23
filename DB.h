@@ -34,6 +34,7 @@
 //    value.  For such routines that were previously void, they are now int, and
 //    return 1 if an error occured, 0 otherwise.
 
+#ifndef C2NIM
 #ifdef INTERACTIVE
 
 #define EPRINTF sprintf
@@ -124,6 +125,8 @@ extern char Ebuffer[];
                      Prog_Name,argv[i][1],argv[i]+2);      				\
       exit (1);                                                                         \
     }
+
+#endif // C2NIM
 
 /*******************************************************************************************
  *
