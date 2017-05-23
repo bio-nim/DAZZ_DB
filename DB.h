@@ -20,6 +20,12 @@
 
 #include "QV.h"
 
+#ifdef C2NIM
+#@
+from qv import QVcoding
+@#
+#else
+
 #define HIDE_FILES          //  Auxiliary DB files start with a . so they are "hidden"
                             //    Undefine if you don't want this
 
@@ -48,6 +54,9 @@
 #define EXIT(x) exit (1)
 
 #endif
+
+#endif
+// C2NIM
 
 typedef unsigned char      uint8;
 typedef unsigned short     uint16;
@@ -204,6 +213,10 @@ typedef struct
 //                                    contains the variable length data
 //    data != NULL && size == 8: anno is an array of nreads+1 int64's and data[anno[i]..anno[i+1])
 //                                    contains the variable length data
+
+#ifdef C2NIM
+#mangle "_track" "HITS_TRACK"
+#endif
 
 typedef struct _track
   { struct _track *next;  //  Link to next track
